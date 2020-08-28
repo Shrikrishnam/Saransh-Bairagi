@@ -1,0 +1,96 @@
+<div
+  class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+  style="
+    min-height: 600px;
+    background-size: cover;
+    background-position: center top;
+  "
+>
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-8"></span>
+  <!-- Header container -->
+  <div class="container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="col-lg-7 col-md-10">
+        <h1 class="display-2 text-white">
+          Have a query or something you wanna discuss?
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-6 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Contact us</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="contactForm" (ngSubmit)="newEnqury()">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-first-name"
+                    >Full name</label
+                  >
+                  <input
+                    #autofocus
+                    formControlName="name"
+                    type="text"
+                    id="input-first-name"
+                    class="form-control form-control-alternative"
+                    placeholder="First name"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-email"
+                    >Email address</label
+                  >
+                  <input
+                    formControlName="mail"
+                    type="email"
+                    id="input-email"
+                    class="form-control form-control-alternative"
+                    placeholder="jesse@example.com"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label class="form-control-label" for="">Message</label>
+                  <textarea
+                    formControlName="message"
+                    class="form-control form-control-alternative"
+                    rows="3"
+                    placeholder="Write a large text here ..."
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg ml-auto">
+              Send Mail
+            </button>
+          </form>
+          <div class="alert alert-success alert-dismissible fade show mt-2" *ngIf="status">
+            <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+            <span class="alert-inner--text"><strong>Thankyou! </strong> Your Response has been recorded.</span>
+            <button type="button" class="close" (click)="status = !status">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
